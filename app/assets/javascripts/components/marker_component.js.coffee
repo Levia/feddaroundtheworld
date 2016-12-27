@@ -24,7 +24,7 @@ window.Marker = class Marker extends React.Component
         for f in features
           $.extend(f.properties, {
             'marker-color': '#3ca0d3'
-            'description': "<img src='#{@state.imageSrc}' />"
+            'description': "<img src='#{@state.imageSrc}' /><p>#{@state.place}</p>"
           })
         L.mapbox.featureLayer().setGeoJSON(response).addTo(@state.map);
       error: (error) =>

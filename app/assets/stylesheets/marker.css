@@ -1,3 +1,7 @@
 .marker-description img {
   width: 200px;
 }
+
+.marker-description p {
+  text-align: center;
+}
