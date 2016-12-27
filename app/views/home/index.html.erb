@@ -1,1 +1,4 @@
-<%= react_component "Map", { imagesSrc: images_paths }  %>
+<%= react_component "Map", {
+  imagesSrc: images_paths,
+  mapboxToken: Rails.application.secrets.mapbox_token
+}%>

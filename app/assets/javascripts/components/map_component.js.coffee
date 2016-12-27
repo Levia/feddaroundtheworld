@@ -5,8 +5,7 @@ window.Map = class Map extends React.Component
     @state = {
       imagesSrc: props.imagesSrc
     }
-    L.mapbox.accessToken =
-      'pk.eyJ1IjoibGV2aWF0aGFuczE3IiwiYSI6ImNpeDJhNjIwcTAwMDYyeW8zNDEzZ216aG4ifQ.Nspo1rr2U1KLH1LL-8IZvA'
+    L.mapbox.accessToken = props.mapboxToken
 
   render: ->
     div(
