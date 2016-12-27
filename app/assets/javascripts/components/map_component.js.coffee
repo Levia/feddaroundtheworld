@@ -34,7 +34,7 @@ window.Map = class Map extends React.Component
       @addMarker('Locri', 'it', 'Italy')
       #@addMarker('Bassano del Grappa', 'it', 'Italy', 'bassano')
       @addMarker('Rijeka', 'hr', 'Croatia')
-      @addMarker('Opatija', 'hr', 'Croatia')
+      @addLatLngMarker('Opatija', ['45.3376197', '14.3051960'])
       @addMarker('Lyon', 'fr', 'France')
     ]
 
@@ -48,6 +48,18 @@ window.Map = class Map extends React.Component
         place: place
         isoCode: isoCode
         country: country
+        imageSrc: @state.imagesSrc[key]
+      }
+    )
+
+  addLatLngMarker: (place, latLng) ->
+    key = place.toLowerCase()
+    React.createElement(LatLngMarker,
+      {
+        key: "#{key}-marker"
+        map: @state.map
+        place: place
+        latLng: latLng
         imageSrc: @state.imagesSrc[key]
       }
     )

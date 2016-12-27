@@ -44,6 +44,7 @@ window.Marker = class Marker extends React.Component
     polyline.addLatLng(
       L.latLng(coordinates.reverse())
     )
-    polyline.addLatLng(
-      L.latLng(@state.cambridgeCoords)
-    )
+    unless @state.place == 'Opatija'
+      polyline.addLatLng(
+        L.latLng(@state.cambridgeCoords)
+      )
