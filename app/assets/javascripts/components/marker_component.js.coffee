@@ -20,13 +20,17 @@ window.Marker = class Marker extends React.Component
       type: 'get'
       dataType: 'json'
       success: (response) =>
-        features = response.features
-        for f in features
-          $.extend(f.properties, {
-            'marker-color': '#3ca0d3'
-            'description': "<img src='#{@state.imageSrc}' /><p>#{@state.place}</p>"
-          })
-        L.mapbox.featureLayer().setGeoJSON(response).addTo(@state.map);
+        f = response.features[0]
+        $.extend(f.properties, {
+          'marker-color': '#3ca0d3'
+          'description': "<img src='#{@state.imageSrc}' /><p>#{@state.place}</p>"
+        })
+        layer = L.mapbox.featureLayer()
+        layer.setGeoJSON(response).addTo(@state.map)
+        layer.bindPopup(f.properties.description, {closeButton: false})
+        layer.on('mouseover', -> layer.openPopup())
+        layer.on('mouseout', -> layer.closePopup())
+
       error: (error) =>
         console.error(JSON.parse(error.responseText).message)
 
