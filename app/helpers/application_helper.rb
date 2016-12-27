@@ -1,7 +1,7 @@
 module ApplicationHelper
   PLACES =
     [
-      "bologna", "brighton", "bristol", "cambridge", "dublin", "edinburgh",
+      "bologna", "brighton", "bristol", "cambridge", "dublin", "edinburgh", "bath",
       "locri", "london", "lyon", "madrid", "opatija", "oxford", "rijeka"
     ]
   def images_paths

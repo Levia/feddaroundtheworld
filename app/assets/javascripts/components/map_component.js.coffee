@@ -29,6 +29,7 @@ window.Map = class Map extends React.Component
       @addMarker('London', 'gb', 'United Kingdom')
       @addMarker('Cambridge', 'gb', 'United Kingdom')
       @addMarker('Brighton', 'gb', 'United Kingdom')
+      @addMarker('Bath', 'gb', 'United Kingdom')
       @addMarker('Bologna', 'it', 'Italy')
       @addMarker('Locri', 'it', 'Italy')
       #@addMarker('Bassano del Grappa', 'it', 'Italy', 'bassano')
