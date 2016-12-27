@@ -8,6 +8,7 @@ window.Marker = class Marker extends React.Component
       country: props.country
       imageSrc: props.imageSrc
       baseUrl: "https://api.mapbox.com/geocoding/v5/mapbox.places"
+      cambridgeCoords: ['52.203394', '0.131493']
     }
 
   render: ->
@@ -22,7 +23,7 @@ window.Marker = class Marker extends React.Component
       success: (response) =>
         f = response.features[0]
         $.extend(f.properties, {
-          'marker-color': '#3ca0d3'
+          'marker-color': '#e00000'
           'description': "<img src='#{@state.imageSrc}' /><p>#{@state.place}</p>"
         })
         layer = L.mapbox.featureLayer()
@@ -30,6 +31,7 @@ window.Marker = class Marker extends React.Component
         layer.bindPopup(f.properties.description, {closeButton: false})
         layer.on('mouseover', -> layer.openPopup())
         layer.on('mouseout', -> layer.closePopup())
+        @addLine(f.geometry.coordinates)
 
       error: (error) =>
         console.error(JSON.parse(error.responseText).message)
@@ -37,3 +39,11 @@ window.Marker = class Marker extends React.Component
     })
     null
 
+  addLine: (coordinates) ->
+    polyline = L.polyline([]).addTo(@state.map)
+    polyline.addLatLng(
+      L.latLng(coordinates.reverse())
+    )
+    polyline.addLatLng(
+      L.latLng(@state.cambridgeCoords)
+    )
