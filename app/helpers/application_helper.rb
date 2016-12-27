@@ -1,7 +1,14 @@
 module ApplicationHelper
+  PLACES =
+    [
+      "bologna", "brighton", "bristol", "cambridge", "dublin", "edinburgh",
+      "locri", "london", "lyon", "madrid", "opatija", "oxford", "rijeka"
+    ]
   def images_paths
-    {
-      london: image_url('danbo_london.jpg')
-    }
+    images_hash = {}
+    PLACES.each do |place|
+      images_hash.merge!({"#{place}": image_url("#{place}.jpg")})
+    end
+    images_hash
   end
 end
