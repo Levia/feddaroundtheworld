@@ -1,0 +1,19 @@
+.map-header {
+  position: absolute;
+  top: 30px;
+  left: 40%;
+  background: rgba(72, 98, 163, 0.7);
+}
+
+.map-header p {
+  color: white;
+  text-align: center;
+  font-size: 36px;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  margin: 10px 10px 0px 10px;
+}
+
+.map-header p.subtitle {
+  font-size: 22px;
+  margin: 0 10px 10px 10px;
+}
