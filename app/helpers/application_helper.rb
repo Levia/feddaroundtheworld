@@ -3,7 +3,7 @@ module ApplicationHelper
     [
       "bologna", "brighton", "bristol", "cambridge", "dublin", "edinburgh", "bath",
       "nottingham", "bedford", "locri", "london", "lyon", "madrid", "opatija", "oxford", "rijeka",
-      "geneva"
+      "geneva", "liverpool"
     ]
   def images_paths
     images_hash = {}

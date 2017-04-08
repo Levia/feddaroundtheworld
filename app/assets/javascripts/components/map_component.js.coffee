@@ -38,6 +38,7 @@ window.Map = class Map extends React.Component
       @addLatLngMarker('Opatija', ['45.3376197', '14.3051960'])
       @addMarker('Lyon', 'fr', 'France')
       @addMarker('Geneva', 'ch', 'Switzerland')
+      @addMarker('Liverpool', 'gb', 'United Kingdom')
     ]
 
   addMarker: (place, isoCode, country, extraKey) ->
