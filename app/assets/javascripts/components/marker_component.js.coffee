@@ -15,7 +15,7 @@ window.Marker = class Marker extends React.Component
     $.ajax({
       url:
         """
-          #{@state.baseUrl}/#{@state.place}%20centre.json?access_token=#{L.mapbox.accessToken}
+          #{@state.baseUrl}/#{@state.place}.json?access_token=#{L.mapbox.accessToken}
           &country=#{@state.isoCode}&limit=1
         """
       type: 'get'
