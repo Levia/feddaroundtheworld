@@ -39,6 +39,7 @@ window.Map = class Map extends React.Component
       @addMarker('Lyon', 'fr', 'France')
       @addMarker('Geneva', 'ch', 'Switzerland')
       @addMarker('Liverpool', 'gb', 'United Kingdom')
+      @addMarker('Cardiff', 'gb', 'United Kingdom')
     ]
 
   addMarker: (place, isoCode, country, extraKey) ->
