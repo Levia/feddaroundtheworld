@@ -4,6 +4,27 @@ window.Map = class Map extends React.Component
     super(props, context)
     @state = {
       imagesSrc: props.imagesSrc
+      markers: [
+        {place: 'Madrid', isocode: 'es', country: 'Spain'},
+        {place: 'Dublin', isocode: 'ie', country: 'Ireland'},
+        {place: 'Bristol', isocode: 'gb', country: 'United Kingdom'},
+        {place: 'Edinburgh', isocode: 'gb', country: 'United Kingdom'},
+        {place: 'Oxford', isocode: 'gb', country: 'United Kingdom'},
+        {place: 'London', isocode: 'gb', country: 'United Kingdom'},
+        {place: 'Cambridge', isocode: 'gb', country: 'United Kingdom'},
+        {place: 'Brighton', isocode: 'gb', country: 'United Kingdom'},
+        {place: 'Bath', isocode: 'gb', country: 'United Kingdom'},
+        {place: 'Nottingham', isocode: 'gb', country: 'United Kingdom'},
+        {place: 'Bedford', isocode: 'gb', country: 'United Kingdom'},
+        {place: 'Bologna', isocode: 'it', country: 'Italy'},
+        {place: 'Locri', isocode: 'it', country: 'Italy'},
+        {place: 'Rijeka', isocode: 'hr', country: 'Croatia'},
+        {place: 'Opatija', isocode: 'hr', country: 'Croatia', latlng: ['45.3376197', '14.3051960']},
+        {place: 'Lyon', isocode: 'fr', country: 'France'},
+        {place: 'Geneva', isocode: 'ch', country: 'Switzerland'},
+        {place: 'Liverpool', isocode: 'gb', country: 'United Kingdom'},
+        {place: 'Cardiff', isocode: 'gb', country: 'United Kingom'}
+      ]
     }
     L.mapbox.accessToken = props.mapboxToken
 
@@ -19,28 +40,11 @@ window.Map = class Map extends React.Component
     @setState({map: map })
 
   renderMarkers: ->
-    [
-      @addMarker('Madrid', 'es', 'Spain')
-      @addMarker('Dublin', 'ie', 'Ireland')
-      @addMarker('Bristol', 'gb', 'United Kingdom')
-      @addMarker('Edinburgh', 'gb', 'United Kingdom')
-      @addMarker('Oxford', 'gb', 'United Kingdom')
-      @addMarker('London', 'gb', 'United Kingdom')
-      @addMarker('Cambridge', 'gb', 'United Kingdom')
-      @addMarker('Brighton', 'gb', 'United Kingdom')
-      @addMarker('Bath', 'gb', 'United Kingdom')
-      @addMarker('Nottingham', 'gb', 'United Kingdom')
-      @addMarker('Bedford', 'gb', 'United Kingdom')
-      @addMarker('Bologna', 'it', 'Italy')
-      @addMarker('Locri', 'it', 'Italy')
-      #@addMarker('Bassano del Grappa', 'it', 'Italy', 'bassano')
-      @addMarker('Rijeka', 'hr', 'Croatia')
-      @addLatLngMarker('Opatija', ['45.3376197', '14.3051960'])
-      @addMarker('Lyon', 'fr', 'France')
-      @addMarker('Geneva', 'ch', 'Switzerland')
-      @addMarker('Liverpool', 'gb', 'United Kingdom')
-      @addMarker('Cardiff', 'gb', 'United Kingdom')
-    ]
+    for m in @state.markers
+      if m.latlng
+        @addLatLngMarker(m.place, m.latlng)
+      else
+        @addMarker(m.place, m.isocode, m.country)
 
   addMarker: (place, isoCode, country, extraKey) ->
     placeDown = place.toLowerCase()
