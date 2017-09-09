@@ -25,7 +25,9 @@ window.Map = class Map extends React.Component
         {place: 'Liverpool', isocode: 'gb', country: 'United Kingdom'},
         {place: 'Cardiff', isocode: 'gb', country: 'United Kingom'},
         {place: 'Turin', isocode: 'it', country: 'Italy'},
-        {place: 'Malaga', isocode: 'es', country: 'Spain'}
+        {place: 'Malaga', isocode: 'es', country: 'Spain'},
+        {place: 'Paris', isocode: 'fr', country: 'France'}
+
       ]
     }
     L.mapbox.accessToken = props.mapboxToken
