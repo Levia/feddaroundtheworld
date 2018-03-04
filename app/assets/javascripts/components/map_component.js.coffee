@@ -26,8 +26,11 @@ window.Map = class Map extends React.Component
         {place: 'Cardiff', isocode: 'gb', country: 'United Kingom'},
         {place: 'Turin', isocode: 'it', country: 'Italy'},
         {place: 'Malaga', isocode: 'es', country: 'Spain'},
-        {place: 'Paris', isocode: 'fr', country: 'France'}
-
+        {place: 'Paris', isocode: 'fr', country: 'France'},
+        {place: 'Brussels', isocode: 'be', country: 'Belgium'},
+        {place: 'Rotterdam', isocode: 'nl', country: 'Netherlands'},
+        {place: 'Amsterdam', isocode: 'nl', country: 'Netherlands'},
+        {place: 'Florence', isocode: 'it', country: 'Italy'}
       ]
     }
     L.mapbox.accessToken = props.mapboxToken
@@ -74,4 +77,17 @@ window.Map = class Map extends React.Component
         latLng: latLng
         imageSrc: @state.imagesSrc[key]
       }
+    )
+
+  addRightClickListener: () ->
+    @state.map.on('contextmenu', (e) ->
+      React.createElement(LatLngMarker,
+        {
+          key: "marker"
+          map: @state.map
+          place: ''
+          latLng: [e.latlng.lat, e.latlng.lng]
+          imageSrc: ''
+        }
+      )
     )
